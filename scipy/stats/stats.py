@@ -3767,7 +3767,7 @@ def spearmanr(a, b=None, axis=0, nan_policy='propagate'):
             else:
                 # Keep track of variables with NaNs, set the outputs to NaN
                 # only for those variables
-                variable_has_nan = np.isnan(a).sum(axis=axisout)
+                variable_has_nan = np.isnan(a).sum(axis=axisout).astype(np.bool)
 
     a_ranked = np.apply_along_axis(rankdata, axisout, a)
     rs = np.corrcoef(a_ranked, rowvar=axisout)
